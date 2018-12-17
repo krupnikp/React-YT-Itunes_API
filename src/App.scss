@@ -1,0 +1,234 @@
+
+/*GLOBAL CLASS*/
+
+$textColor: white;
+$searchBoxColor: #4d4d4c;
+$boxColor: rgba(77, 77, 76, 0.5);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-image:(linear-gradient(top, #7d7e7d 0%,#0e0e0e 100%));
+  color: $textColor;
+}
+.cont {
+
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.details {
+  background: $boxColor;
+  padding: 15px;
+  border-radius: 4px;
+  width: 50%;
+  margin: 0px auto;
+
+  .title-YT{
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 1px;
+      background-color: $searchBoxColor;
+      width: 100%;
+      top: 125%;
+    }
+  }
+  .details-box{
+    display: flex;
+    p {
+      margin: 5px 40px;
+    }
+    div {
+      width: 450px;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: "";
+        height: 1px;
+        background-color: $searchBoxColor;
+        width: 90px;
+        top: 50%;
+        left: -5%;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .details-box-txt-span {
+    font-weight: bold;
+  }
+}
+
+.txt-YT {
+  padding: 15px;
+}
+
+
+/*BTN SHOW*/
+
+
+.btnHidden {
+  margin-top: 15px;
+  text-align: center;
+  transform: rotate(180deg);
+}
+
+.btn__show {
+  cursor: pointer;
+  width: 50px;
+  background-color: transparent;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-align: center;
+
+
+    color: white;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    border: 1px solid $searchBoxColor;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      border: 1px solid transparent;
+      border-bottom: 1px solid $searchBoxColor;
+      border-radius: 0;
+      background-position: 100% center;
+      width: 200px;
+    }
+}
+
+/*SEARCH BAR*/
+
+.search-bar {
+  margin: 30px;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 30%;
+}
+
+.search {
+  &__container {
+    padding-top: 64px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 24px;
+
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: white;
+    background-color: transparent;
+    background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid $searchBoxColor;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+
+    &::placeholder {
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    &:hover,
+    &:focus {
+      padding: 12px 0;
+      outline: 0;
+      border: 1px solid transparent;
+      border-bottom: 1px solid $searchBoxColor;
+      border-radius: 0;
+      background-position: 100% center;
+    }
+  }
+}
+
+
+
+/*ANIMATION*/
+
+.loadingAnim {
+  margin: 0 auto;
+}
+
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 27px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: $textColor;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 26px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 45px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(19px, 0);
+  }
+}
+
+
+
