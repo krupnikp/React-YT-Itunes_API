@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class VideoPlayer extends React.Component {
    constructor(props) {
         super(props);
@@ -13,7 +12,7 @@ class VideoPlayer extends React.Component {
        this.setState({
            show: !this.state.show
        })
-   }
+   };
 
    render(){
        if (!this.props.video) {
@@ -25,11 +24,11 @@ class VideoPlayer extends React.Component {
        return (
 
            <div>
-               <div style={{width: '50%', margin: "30px auto 0 auto"}} className="embed-responsive embed-responsive-16by9">
-                   <iframe className="embed-responsive-item" src={url}></iframe>
+               <div className="embed-responsive embed-responsive-16by9">
+                   <iframe className="video-player embed-responsive-item" src={url} />
                </div>
                <div className="details">
-                   <h4 className={'title-YT'}>{this.props.video.snippet.title}</h4>
+                   <h2 className={'title-YT'}>{this.props.video.snippet.title}</h2>
                    <div className={'btnHidden'}>
                     <button className={'btn__show'} onClick={this.hidden}>
                         ...
