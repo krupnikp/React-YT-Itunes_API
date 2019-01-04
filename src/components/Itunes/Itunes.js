@@ -1,7 +1,6 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-
 const ItunesApi = ({ dataItunes }) => {
     if (!dataItunes) {
         return (
@@ -16,9 +15,9 @@ const ItunesApi = ({ dataItunes }) => {
         );
     }
     return (
-        <div style={{width: '50%', margin: '20px auto'}}>
+        <div>
             <div style={{width:'100%'}}  className='details'>
-                <h4>{dataItunes.artistName}</h4>
+                <h2>{dataItunes.artistName}</h2>
                 <div className={'details-box'}>
                     <a href={(dataItunes.trackViewUrl)}><img src={(dataItunes.artworkUrl100)} /></a>
                     <div className={'details-box-txt'}>
@@ -30,6 +29,6 @@ const ItunesApi = ({ dataItunes }) => {
             </div>
         </div>
     );
-}
+};
 
 export default ItunesApi

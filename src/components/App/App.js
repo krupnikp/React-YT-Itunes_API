@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import './App.scss';
 
-import ItunesApi from './ApiItunes.js'
-import YTSearch from 'youtube-api-search';
 import _ from 'lodash';
-import SearchBar from './SearchBar';
-import VideoPlayer from './VideoPlayer'
+import YTSearch from 'youtube-api-search';
+
+import ItunesApi from '../Itunes/Itunes'
+import SearchBar from '../SearchBar/SearchBar';
+import VideoPlayer from '../VideoPlayer/VideoPlayer'
+
+import './App.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faIgloo, faPlay, faCompactDisc, faMusic } from '@fortawesome/free-solid-svg-icons'
-library.add(faIgloo, faPlay, faCompactDisc, faMusic)
 
+library.add(faIgloo, faPlay, faCompactDisc, faMusic);
 
 const API_KEY = 'AIzaSyDH9ptP2jv74rJHOsy7jwwi0K4onZqfLtU';
-
 
 class App extends Component {
     constructor(props) {
@@ -31,14 +32,11 @@ class App extends Component {
 
     videoSearch = _.debounce((term) => { this.searchYoutube(term); this.searchItunes(term) }, 500);
 
-
-
     searchItunes(term) {
         fetch(`https://itunes.apple.com/search?term=${term}&entity=song`)
             .then(r => r.json())
             .then(response => {
                 const data = response.results;
-                console.log(data)
                 this.setState({
                     description: data[0],
                 })
@@ -53,10 +51,7 @@ class App extends Component {
         });
     }
 
-
-
     render() {
-
         if(!this.state.selectedVideo && !this.state.description) {
             return (
                 <div style={{height:'800px'}} className={'cont'}>
@@ -67,12 +62,9 @@ class App extends Component {
                 </div>
             )
         }
-
         return (
-            <div className="cont" >
-                {/*<NavBar />*/}
+            <div className="cont">
                 <div>
-                    {console.log(this.state.selectedVideo)}
                     <SearchBar onChange={(searchTerm) => {this.videoSearch(searchTerm)}} />
                             <VideoPlayer video={this.state.selectedVideo} />
                             <ItunesApi dataItunes={this.state.description} />
